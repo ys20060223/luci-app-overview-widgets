@@ -1,0 +1,15 @@
+{
+  "admin/status/routes/online-users": {
+    "title": "在线用户管理",
+    "order": 5,
+    "action": {
+      "type": "view",
+      "path": "overview-widgets/users"
+    },
+    "depends": {
+      "acl": ["luci-app-overview-widgets"],
+      "uci": ["dhcp"]
+    },
+    "icon": "luci-icon-users"
+  }
+}

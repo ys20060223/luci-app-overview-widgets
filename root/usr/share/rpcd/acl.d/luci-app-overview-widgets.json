@@ -1,0 +1,29 @@
+{
+  "luci-app-overview-widgets": {
+    "description": "授予在线用户管理插件访问权限",
+    "read": {
+      "ubus": {
+        "luci": ["getCPUInfo", "getTempInfo"],
+        "network": ["get_wifi_networks", "get_host_hints"]
+      },
+      "file": {
+        "/etc/overview.json": ["read"],
+        "/www/luci-static/resources/view/overview-widgets": ["list"],
+        "/sbin/swconfig dev switch0 show": ["exec"],
+        "/sbin/ip -[46] neigh show dev br-lan": ["exec"],
+        "/sbin/ip -[46] neigh flush dev br-lan": ["exec"],
+        "/usr/bin/fping *": ["exec"],
+        "/usr/sbin/iwpriv *": ["exec"]
+      }
+    },
+    "write": {
+      "file": {
+        "/bin/mv": ["exec"],
+        "/etc/overview.json": ["write"]
+      },
+      "ubus": {
+        "network.wireless": ["disconnect_client"]
+      }
+    }
+  }
+}

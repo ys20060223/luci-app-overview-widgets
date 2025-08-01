@@ -1,0 +1,47 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+#: htdocs/luci-static/resources/view/status/include/99_manager.js:97
+msgid "Cancel"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/status/include/03_users.js:409
+msgid "Disconnect"
+msgstr ""
+
+#: root/usr/share/rpcd/acl.d/luci-app-overview-widgets.json:3
+msgid "Grant access to overview-widgets"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/status/include/03_users.js:203
+#: htdocs/luci-static/resources/view/status/include/03_users.js:212
+msgid "Loading"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/status/include/03_users.js:136
+msgid "MHz"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/status/include/03_users.js:136
+msgid "Mbit/s"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/status/include/03_users.js:700
+msgid "Online Users"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/status/include/02_ports.js:184
+msgid "Port status"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/status/include/99_manager.js:91
+msgid "Save & Apply"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/status/include/03_users.js:141
+msgid "Short GI"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/status/include/03_users.js:431
+msgid "Unable to disconnectClient:"
+msgstr ""

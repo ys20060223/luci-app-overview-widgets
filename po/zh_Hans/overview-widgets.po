@@ -1,0 +1,54 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: zh_Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: htdocs/luci-static/resources/view/status/include/99_manager.js:97
+msgid "Cancel"
+msgstr "取消"
+
+#: htdocs/luci-static/resources/view/status/include/03_users.js:409
+msgid "Disconnect"
+msgstr "断开"
+
+#: root/usr/share/rpcd/acl.d/luci-app-overview-widgets.json:3
+msgid "Grant access to overview-widgets"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/status/include/03_users.js:203
+#: htdocs/luci-static/resources/view/status/include/03_users.js:212
+msgid "Loading"
+msgstr "正在刷新"
+
+#: htdocs/luci-static/resources/view/status/include/03_users.js:136
+msgid "MHz"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/status/include/03_users.js:136
+msgid "Mbit/s"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/status/include/03_users.js:700
+msgid "Online Users"
+msgstr "在线用户"
+
+#: htdocs/luci-static/resources/view/status/include/02_ports.js:184
+msgid "Port status"
+msgstr "端口状态"
+
+#: htdocs/luci-static/resources/view/status/include/99_manager.js:91
+msgid "Save & Apply"
+msgstr "保存并应用"
+
+#: htdocs/luci-static/resources/view/status/include/03_users.js:141
+msgid "Short GI"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/status/include/03_users.js:431
+msgid "Unable to disconnectClient:"
+msgstr "无法断开用户"
