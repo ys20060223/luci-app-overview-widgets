@@ -1,0 +1,6 @@
+config global
+	option refresh_interval '30'
+	option weak_signal_threshold '-75'
+	option show_all_users '1'
+	option show_signal_bars '1'
+	option show_weak_banner '1'

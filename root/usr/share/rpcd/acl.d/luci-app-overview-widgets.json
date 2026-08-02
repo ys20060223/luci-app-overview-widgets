@@ -1,0 +1,34 @@
+{
+	"luci-app-overview-widgets": {
+		"description": "Grant access to online users overview page",
+		"read": {
+			"ubus": {
+				"luci.overview": [
+					"getOnlineUserlist"
+				]
+			},
+			"file": {
+				"/usr/share/rpcd/ucode/luci.overview.uc": true
+			},
+			"uci": [
+				"overview-widgets"
+			],
+			"menu": [
+				"admin/status/overview-widgets"
+			]
+		},
+		"write": {
+			"ubus": {
+				"luci.overview": [
+					"disconnectClient",
+					"renameDevice",
+					"setIcon",
+					"flushArp"
+				]
+			},
+			"uci": [
+				"overview-widgets"
+			]
+		}
+	}
+}

@@ -1,0 +1,10 @@
+{
+    "admin/status/overview-widgets": {
+        "title": "Online Users",
+        "order": 70,
+        "action": {
+            "type": "view",
+            "path": "overview-widgets/index"
+        }
+    }
+}

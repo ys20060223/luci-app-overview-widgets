@@ -2,6 +2,9 @@
 *.lua
 *.htm
 *.sh
-etc/
+
+# Ignore old dirs but keep new structure
+!root/
+root/etc/luci/
+root/etc/init.d/
 luasrc/
-root/
