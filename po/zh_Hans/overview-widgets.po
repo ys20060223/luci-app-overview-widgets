@@ -1,0 +1,157 @@
+# Chinese (Simplified) translations for luci-app-overview-widgets
+# Copyright (C) 2024 OpenWrt
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: luci-app-overview-widgets\n"
+"Language: zh_Hans\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "在线用户管理"
+msgstr "在线用户管理"
+
+msgid "查看和管理当前连接到网络的所有设备"
+msgstr "查看和管理当前连接到网络的所有设备"
+
+msgid "总在线设备"
+msgstr "总在线设备"
+
+msgid "当前活跃"
+msgstr "当前活跃"
+
+msgid "无线设备"
+msgstr "无线设备"
+
+msgid "有线设备"
+msgstr "有线设备"
+
+msgid "以太网连接"
+msgstr "以太网连接"
+
+msgid "设备列表"
+msgstr "设备列表"
+
+msgid "显示全部/仅WiFi"
+msgstr "显示全部/仅WiFi"
+
+msgid "显示全部设备"
+msgstr "显示全部设备"
+
+msgid "仅显示WiFi设备"
+msgstr "仅显示WiFi设备"
+
+msgid "刷新ARP缓存"
+msgstr "刷新ARP缓存"
+
+msgid "收起列表"
+msgstr "收起列表"
+
+msgid "展开列表"
+msgstr "展开列表"
+
+msgid "搜索名称、IP 或 MAC 地址..."
+msgstr "搜索名称、IP 或 MAC 地址..."
+
+msgid "排序"
+msgstr "排序"
+
+msgid "默认"
+msgstr "默认"
+
+msgid "名称"
+msgstr "名称"
+
+msgid "信号"
+msgstr "信号"
+
+msgid "速率"
+msgstr "速率"
+
+msgid "在线时长"
+msgstr "在线时长"
+
+msgid "弱信号"
+msgstr "弱信号"
+
+msgid "更换图标"
+msgstr "更换图标"
+
+msgid "重命名"
+msgstr "重命名"
+
+msgid "保存"
+msgstr "保存"
+
+msgid "取消"
+msgstr "取消"
+
+msgid "断开连接"
+msgstr "断开连接"
+
+msgid "选择图标"
+msgstr "选择图标"
+
+msgid "检测到弱信号设备，建议检查天线位置或减少干扰源"
+msgstr "检测到弱信号设备，建议检查天线位置或减少干扰源"
+
+msgid "正在刷新 ARP 缓存..."
+msgstr "正在刷新 ARP 缓存..."
+
+msgid "ARP 缓存已刷新"
+msgstr "ARP 缓存已刷新"
+
+msgid "正在断开"
+msgstr "正在断开"
+
+msgid "断开失败"
+msgstr "断开失败"
+
+msgid "已断开"
+msgstr "已断开"
+
+msgid "确定要断开"
+msgstr "确定要断开"
+
+msgid "设备名称"
+msgstr "设备名称"
+
+msgid "网络信息"
+msgstr "网络信息"
+
+msgid "无线信息"
+msgstr "无线信息"
+
+msgid "DHCP 信息"
+msgstr "DHCP 信息"
+
+msgid "信号强度"
+msgstr "信号强度"
+
+msgid "频率"
+msgstr "频率"
+
+msgid "下行速率"
+msgstr "下行速率"
+
+msgid "上行速率"
+msgstr "上行速率"
+
+msgid "DHCP 类型"
+msgstr "DHCP 类型"
+
+msgid "主机名"
+msgstr "主机名"
+
+msgid "接口"
+msgstr "接口"
+
+msgid "自动刷新"
+msgstr "自动刷新"
+
+msgid "正在刷新设备列表..."
+msgstr "正在刷新设备列表..."
+
+msgid "没有找到匹配的设备"
+msgstr "没有找到匹配的设备"

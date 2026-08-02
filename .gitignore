@@ -1,0 +1,7 @@
+# OpenWrt overview-widgets plugin
+*.lua
+*.htm
+*.sh
+etc/
+luasrc/
+root/
