@@ -1,18 +1,18 @@
 # CLAUDE.md
 
-OpenWrt LuCI plugin for online user management, built with ucode RPC + JS view architecture.
+OpenWrt LuCI 插件，用于在线用户管理，采用 ucode RPC + JS 视图架构。
 
-## Architecture
+## 架构
 
-**Modern LuCI stack** — no Lua controller, no htm templates:
-- `root/usr/share/rpcd/ucode/luci.overview.uc` — ubus RPC module with 5 methods
-- `htdocs/luci-static/resources/view/overview-widgets/index.js` — LuCI JS view using E() API
-- `htdocs/luci-static/resources/overview-widgets/style.css` — custom CSS matching preview.html design
-- `root/usr/share/luci/menu.d/` — menu entry under admin/status
-- `root/usr/share/rpcd/acl.d/` — ubus/uci/menu permissions
-- `root/etc/config/overview-widgets` — default UCI config, persistent icon/label storage
+**现代 LuCI 栈** — 无 Lua 控制器，无 htm 模板：
+- `root/usr/share/rpcd/ucode/luci.overview.uc` — ubus RPC 模块，5 个方法
+- `htdocs/luci-static/resources/view/overview-widgets/index.js` — LuCI JS 视图，使用 E() API
+- `htdocs/luci-static/resources/overview-widgets/style.css` — 自定义 CSS，匹配预览图设计
+- `root/usr/share/luci/menu.d/` — 菜单入口，位于 admin/status 下
+- `root/usr/share/rpcd/acl.d/` — ubus/uci/menu 权限配置
+- `root/etc/config/overview-widgets` — 默认 UCI 配置，持久化图标/昵称存储
 
-## Key RPC Methods
+## 核心 RPC 方法
 
 ```ucode
 luci.overview.getOnlineUserlist()   → { userlist: [...], savedIcons: {}, savedLabels: {} }
@@ -22,44 +22,44 @@ luci.overview.setIcon(args)         { mac, icon }   → { result: bool }
 luci.overview.flushArp()            → { result: bool }
 ```
 
-## Data Sources
+## 数据来源
 
-Device discovery reads from:
-- `/proc/net/arp` + `ip neigh show` — ARP/neighbor tables
-- `/tmp/dhcp.leases` — DHCP lease info (ip, hostname, expiry)
-- `/tmp/hosts/odhcpd` + `/tmp/hosts/dhcp` — hostname resolution
-- `iw dev ... station dump` — WiFi signal strength and bitrate
-- WiFi interface detection via `/sys/class/net/*/wireless`
+设备发现读取以下位置：
+- `/proc/net/arp` + `ip neigh show` — ARP/邻居表
+- `/tmp/dhcp.leases` — DHCP 租约信息（IP、主机名、到期时间）
+- `/tmp/hosts/odhcpd` + `/tmp/hosts/dhcp` — 主机名解析
+- `iw dev ... station dump` — WiFi 信号强度和速率
+- WiFi 接口检测：`/sys/class/net/*/wireless`
 
-Persistent config (icon, label) stored in UCI section type `dev` under `overview-widgets`.
+持久化配置（图标、昵称）以 UCI 类型 `dev` 存储在 `overview-widgets` 配置中。
 
-## Build
+## 构建
 
 ```bash
-# In OpenWrt SDK
+# 在 OpenWrt SDK 中
 make package/luci-app-overview-widgets/compile V=s
 
-# Install .apk on device
+# 安装到设备
 opkg install luci-app-overview-widgets_*.apk
 opkg install luci-i18n-overview-widgets_*.apk
 ```
 
 ## GitHub Actions
 
-Build workflow at `.github/workflows/build.yml` targets `qualcommax-ipq50xx` (NX30 Pro). Triggers on `workflow_dispatch`. Produces `.apk` packages uploaded to GitHub Releases as `multi-arch-build` tag.
+构建工作流位于 `.github/workflows/build.yml`，针对 `qualcommax-ipq50xx`（NX30 Pro）。通过 `workflow_dispatch` 手动触发，生成 `.apk` 包并上传至 GitHub Releases 的 `multi-arch-build` 标签。
 
-## JS View API Conventions
+## JS 视图开发规范
 
-- Use `E()` for all DOM construction (never `innerHTML` with HTML strings)
-- Event handlers use `click:` not `onclick:` in E() calls
-- `poll.add(callback, interval)` for periodic data refresh (60s default)
-- Strings: `_('translatable string')` via i18n; see `po/zh_Hans/overview-widgets.po`
-- RPC calls: `rpc.declare({ object: 'luci.overview', method: '...', expect: {...} })`
+- 使用 `E()` 构建所有 DOM 元素（不要对 `innerHTML` 拼接 HTML 字符串）
+- 事件处理用 `click:` 而非 `onclick:`
+- `poll.add(callback, interval)` 定期刷新数据（默认 60 秒）
+- 可翻译字符串用 `_('文本')` 包裹，翻译文件在 `po/zh_Hans/overview-widgets.po`
+- RPC 声明：`rpc.declare({ object: 'luci.overview', method: '...', expect: {...} })`
 
-## Important Notes
+## 重要注意事项
 
-- **Makefile must include `$(TOPDIR)/rules.mk`** before `$(TOPDIR)/feeds/luci/luci.mk` — omitting it causes `No rule to make target '/package.mk'` error
-- SDK URL for ipq50xx: `https://downloads.openwrt.org/snapshots/targets/qualcommax/ipq50xx/openwrt-sdk-qualcommax-ipq50xx_gcc-14.4.0_musl.Linux-x86_64.tar.zst`
-- Device config sections use type `dev` (not `device`) to avoid UCI keyword conflict
-- ucode RPC runs under `/usr/share/rpcd/ucode/` — uses `import { readfile, popen } from 'fs'`, standard ucode builtins (`match`, `split`, `trim`, etc.)
-- Do NOT use `import { uci } from 'luci'` in ucode — use direct filesystem reads of `/etc/config/overview-widgets` instead
+- **Makefile 必须在 `feeds/luci/luci.mk` 之前 include `rules.mk`**，否则会报 `No rule to make target '/package.mk'` 错误
+- ipq50xx SDK 地址：`https://downloads.openwrt.org/snapshots/targets/qualcommax/ipq50xx/openwrt-sdk-qualcommax-ipq50xx_gcc-14.4.0_musl.Linux-x86_64.tar.zst`
+- UCI 配置节类型用 `dev`（不用 `device`，避免关键字冲突）
+- ucode RPC 使用 `import { readfile, popen } from 'fs'` 及 ucode 内置函数（`match`、`split`、`trim` 等）
+- **不要在 ucode 中使用 `import { uci } from 'luci'`**，应直接读写 `/etc/config/overview-widgets` 文件
