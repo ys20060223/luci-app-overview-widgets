@@ -13,11 +13,8 @@ jobs:
     strategy:
       matrix:
         include:
-          - name: "qualcommax-ipq60xx-snapshot"
-            sdk_url: "https://downloads.openwrt.org/snapshots/targets/qualcommax/ipq60xx/openwrt-sdk-qualcommax-ipq60xx_gcc-14.4.0_musl.Linux-x86_64.tar.zst"
-            extract_cmd: "tar -I zstd -xf"
-          - name: "mediatek-filogic-snapshot"
-            sdk_url: "https://downloads.openwrt.org/snapshots/targets/mediatek/filogic/openwrt-sdk-mediatek-filogic_gcc-14.4.0_musl.Linux-x86_64.tar.zst"
+          - name: "qualcommax-ipq50xx-snapshot"
+            sdk_url: "https://downloads.openwrt.org/snapshots/targets/qualcommax/ipq50xx/openwrt-sdk-qualcommax-ipq50xx_gcc-14.4.0_musl.Linux-x86_64.tar.zst"
             extract_cmd: "tar -I zstd -xf"
 
     name: Build luci-app-overview-widgets (${{ matrix.name }})
