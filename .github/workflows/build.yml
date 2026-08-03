@@ -37,14 +37,8 @@ jobs:
       - name: 复制插件到 SDK
         run: |
           mkdir -p openwrt-sdk/package/${{ steps.extract.outputs.PLUGIN_NAME }}
-          rsync -av --delete \
-            --exclude 'openwrt-sdk' \
-            --exclude '.git' \
-            --exclude 'bin' \
-            --exclude '.github/workflows' \
-            --exclude '*.tar.*' \
-            --exclude 'sdk-archive' \
-            ./ openwrt-sdk/package/${{ steps.extract.outputs.PLUGIN_NAME }}/
+          cp -r ./* openwrt-sdk/package/${{ steps.extract.outputs.PLUGIN_NAME }}/
+          rm -f openwrt-sdk/package/${{ steps.extract.outputs.PLUGIN_NAME }}/Makefile
 
       - name: 安装 feeds 并配置
         run: |
